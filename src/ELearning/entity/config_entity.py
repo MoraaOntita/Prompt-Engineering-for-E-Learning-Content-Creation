@@ -21,3 +21,18 @@ class DataIngestionConfig:
 class DataIngestionPdfConfig:
     root_dir: str
     pdf_links: List[str]
+    
+    
+@dataclass
+class MetadataConfig:
+    root_dir: str
+    pptx_file_name: str
+    pdf_file_prefix: str
+
+    @classmethod
+    def from_dict(cls, config_dict: Dict[str, Any]):
+        return cls(
+            root_dir=config_dict['root_dir'],
+            pptx_file_name=config_dict['pptx_file_name'],
+            pdf_file_prefix=config_dict['pdf_file_prefix']
+        )

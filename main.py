@@ -1,6 +1,7 @@
 import logging
 from src.ELearning.pipeline.stage_01_data_ingestion_pptx import DataIngestionPipeline
 from src.ELearning.pipeline.stage_02_ingest_pdf import DataIngestionPDFPipeline
+from src.ELearning.pipeline.stage_03_metadata_extraction import MetadataExtractionPipeline 
 
 DATA_INGESTION_STAGE_NAME = "Data Ingestion PPTX Stage"
 
@@ -33,6 +34,21 @@ def run_pdf_data_ingestion():
         logging.error(f"Error occurred during {DATA_INGESTION_PDF_STAGE}: {e}")
         raise e
 
+METADATA_EXTRACTION_STAGE_NAME = "Metadata Extraction Stage" 
+
+def run_metadata_extraction():
+    """
+    Runs the metadata extraction stage of the pipeline.
+    """
+    try:
+        logging.info(f"Starting {METADATA_EXTRACTION_STAGE_NAME}.")
+        metadata_extraction_pipeline = MetadataExtractionPipeline()  # Create an instance of the metadata extraction pipeline
+        metadata_extraction_pipeline.main()  # Call the main method to run it
+        logging.info(f"{METADATA_EXTRACTION_STAGE_NAME} completed successfully.")
+    except Exception as e:
+        logging.error(f"Error occurred during {METADATA_EXTRACTION_STAGE_NAME}: {e}")
+        raise e
+
 
 def main():
     """
@@ -41,6 +57,7 @@ def main():
     try:
         run_data_ingestion()  # Run PPTX ingestion
         run_pdf_data_ingestion()  # Run PDF ingestion
+        run_metadata_extraction()  # Run metadata extraction
     except Exception as e:
         logging.error(f"Pipeline failed with error: {e}")
         raise e

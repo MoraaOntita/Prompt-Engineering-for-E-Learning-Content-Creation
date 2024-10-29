@@ -4,6 +4,7 @@ import logging
 from src.ELearning.constants import CONFIG_FILE_PATH
 from src.ELearning.entity.config_entity import DataIngestionConfig
 from src.ELearning.entity.config_entity import DataIngestionPdfConfig
+from src.ELearning.entity.config_entity import MetadataConfig
 
 class Configuration:
     def __init__(self, config_file_path=CONFIG_FILE_PATH):
@@ -25,3 +26,7 @@ class Configuration:
             root_dir=pdf_config["root_dir"],
             pdf_links=pdf_config["pdf_links"]
         )
+
+    def get_metadata_config(self) -> MetadataConfig:
+        metadata_config = self.config.get('metadata', {})
+        return MetadataConfig.from_dict(metadata_config)

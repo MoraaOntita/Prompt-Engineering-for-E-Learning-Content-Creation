@@ -8,3 +8,8 @@ pdf_data_ingestion:
   pdf_links:
     - "1umzTCsbBmuFx4xz9DSMI82oq21tHhbKL"  # First PDF file ID
     - "13oqVt9LYdESPS8XNYFLhSLZMkZk52JXG"  # Second PDF file ID
+
+metadata:  
+  root_dir: "artifacts/metadata"  
+  pptx_file_name: "metadata_pptx.json"  
+  pdf_file_prefix: "metadata_"
