@@ -2,9 +2,7 @@ import yaml
 import os
 import logging
 from src.ELearning.constants import CONFIG_FILE_PATH
-from src.ELearning.entity.config_entity import DataIngestionConfig
-from src.ELearning.entity.config_entity import DataIngestionPdfConfig
-from src.ELearning.entity.config_entity import MetadataConfig
+from src.ELearning.entity.config_entity import DataIngestionConfig, DataIngestionPdfConfig, MetadataConfig, ChunkingConfig
 
 class Configuration:
     def __init__(self, config_file_path=CONFIG_FILE_PATH):
@@ -30,3 +28,9 @@ class Configuration:
     def get_metadata_config(self) -> MetadataConfig:
         metadata_config = self.config.get('metadata', {})
         return MetadataConfig.from_dict(metadata_config)
+    
+    def get_chunking_config(self) -> ChunkingConfig:
+        chunking_config = self.config.get('chunking', {})
+        return ChunkingConfig.from_dict(chunking_config)
+
+   

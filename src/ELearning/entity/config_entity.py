@@ -1,6 +1,5 @@
 from dataclasses import dataclass
-from typing import Dict, Any
-from typing import List
+from typing import List, Dict, Any
 
 @dataclass
 class DataIngestionConfig:
@@ -35,4 +34,24 @@ class MetadataConfig:
             root_dir=config_dict['root_dir'],
             pptx_file_name=config_dict['pptx_file_name'],
             pdf_file_prefix=config_dict['pdf_file_prefix']
+        )
+
+@dataclass
+class ChunkingConfig:
+    root_dir: str
+    chunk_size: int
+    pptx_chunk_filename: str
+    pptx_metadata_filename: str
+    pdf_chunk_filename_prefix: str
+    pdf_metadata_filename_prefix: str
+
+    @classmethod
+    def from_dict(cls, config_dict: Dict[str, Any]):
+        return cls(
+            root_dir=config_dict['root_dir'],
+            chunk_size=config_dict['chunk_size'],
+            pptx_chunk_filename=config_dict['pptx_chunk_filename'],
+            pptx_metadata_filename=config_dict['pptx_metadata_filename'],
+            pdf_chunk_filename_prefix=config_dict['pdf_chunk_filename_prefix'],
+            pdf_metadata_filename_prefix=config_dict['pdf_metadata_filename_prefix']
         )

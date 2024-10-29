@@ -13,3 +13,11 @@ metadata:
   root_dir: "artifacts/metadata"  
   pptx_file_name: "metadata_pptx.json"  
   pdf_file_prefix: "metadata_"
+
+chunking:
+  root_dir: "artifacts/chunked"
+  chunk_size: 200
+  pptx_chunk_filename: "chunked_pptx.json"
+  pptx_metadata_filename: "metadata_chunked_pptx.json"
+  pdf_chunk_filename_prefix: "chunked_pdf_"
+  pdf_metadata_filename_prefix: "metadata_chunked_pdf_"
