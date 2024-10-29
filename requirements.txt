@@ -1,0 +1,8 @@
+python-pptx
+Pillow 
+pandas
+ipykernel
+requests
+gdown
+PyMuPDF
+pyyaml

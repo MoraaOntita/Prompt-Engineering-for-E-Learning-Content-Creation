@@ -1,0 +1,10 @@
+data_ingestion_pptx:
+  root_dir: "artifacts/data_ingestion_pptx"
+  file_id: "1Wib-VAY4TU-jwVykIu_Oi-6hpv0G-w7-"  # The Google Drive file ID
+  output_filename: "downloaded_presentation.pptx"
+
+pdf_data_ingestion:
+  root_dir: "artifacts/ingest_pdf"
+  pdf_links:
+    - "1umzTCsbBmuFx4xz9DSMI82oq21tHhbKL"  # First PDF file ID
+    - "13oqVt9LYdESPS8XNYFLhSLZMkZk52JXG"  # Second PDF file ID
